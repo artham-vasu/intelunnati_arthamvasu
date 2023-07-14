@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Stick+No+Bills:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Architects Daughter', cursive; */
+    font-family: 'Oswald', sans-serif;
+    scroll-behavior: smooth;
+}
+section{
+    padding: 100px;
+}
+header ul li a:hover{
+    color: rgb(0, 0, 0);
+
+}
+.banner{
+    position: relative;
+    min-height: 100vh;
+    background: url(/assets/pexels-pixabay-210095.jpg);
+    background-size: cover;
+    background-position: right;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.banner h2{
+    font-size: 3em;
+    color: #f4f4f4;
+    line-height: 1.5em;
+    font-weight: 500;
+}
+.banner h2 span{
+    font-size: 1.5em;
+    font-weight: 700;
+}
+.banner h3{
+    font-size: 1.5em;
+    color: #f7f3f3;
+    font-weight: 500;
+}
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 1000;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    transition: 0.5s;
+}
+header.sticky{
+    background: hsl(0, 0%, 100%);
+    padding: 20px 100px;
+    box-shadow: 0 5px 20px rgb(0,0,0,0.1);
+}
+header .logo{
+    color: #f6f2f2;
+    font-size: 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-family: 'Stick No Bills', sans-serif;
+}
+header.sticky .logo{
+    color: #f0ebeb;
+
+}
+header ul{
+    position: relative;
+    display: flex;
+
+}
+header ul li{
+    position: relative;
+    list-style: none;
+}
+header ul li a{
+    position: relative;
+    display: inline-block;
+    margin: 0px 15px;
+    text-decoration: none;
+    color: #f9f4f4;
+
+}
+header.sticky ul li a{
+    color: #e7e2e2;
+}
+.heading{
+    width: 100%;
+    margin-bottom: 30px;
+    color: #efebeb;
+    text-align: center;
+}
+.heading h2{
+    font-weight: 600;
+    font-size: 30px;
+}

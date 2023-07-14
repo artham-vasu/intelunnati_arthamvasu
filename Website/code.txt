@@ -1,0 +1,59 @@
+import PyPDF2
+import requests
+
+# Function to extract text from PDF
+def extract_text_from_pdf(file_path):
+    with open(file_path, 'rb') as file:
+        reader = PyPDF2.PdfReader(file)
+        text = ''
+        for page in reader.pages:
+            text += page.extract_text()
+        return text
+
+# Function to geocode addresses using Google Maps Geocoding API
+def geocode_address(address):
+    api_key = 'AIzaSyBpK2CnKlAiV-yhZuoZlEgwO4h0lZwyuoo'  # Replace with your own Google Maps API key
+    endpoint = f'https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={api_key}'
+    response = requests.get(endpoint)
+    data = response.json()
+    if data['status'] == 'OK':
+        location = data['results'][0]['geometry']['location']
+        latitude = location['lat']
+        longitude = location['lng']
+        return latitude, longitude
+    else:
+        return None, None
+
+# Path to the PDF file
+pdf_file_path = r"C:\Users\Artham Vasu\Downloads\Andhra_Pradesh.pdf" #Put path to file
+
+# Extract text from PDF
+pdf_text = extract_text_from_pdf(r"C:\Users\Artham Vasu\Downloads\Andhra_Pradesh.pdf") #Put path to file
+
+# Split the text into lines and process each line
+lines = pdf_text.split('\n')
+districts = []
+locations = []
+
+for line in lines:
+    # Perform any necessary text processing to extract district and location names
+    district = line.strip()  QGis2web
+    location = ''  # Example: Assuming the location name is empty for now
+    
+    # Skip empty lines or lines that don't contain district names
+    if not district:
+        continue
+    
+    # Geocode the district and location
+    latitude, longitude = geocode_address(f'{district}, {location}')
+    
+    if latitude and longitude:
+        districts.append(district)
+        locations.append((latitude, longitude))
+
+# Print the districts and their corresponding latitude and longitude
+for i in range(len(districts)):
+    print(f'District: {districts[i]}')
+    print(f'Latitude: {locations[i][0]}')
+    print(f'Longitude: {locations[i][1]}')
+    print()
