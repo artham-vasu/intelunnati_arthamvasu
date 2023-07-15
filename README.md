@@ -6,3 +6,4 @@ Work Done:- **Mapped the blackspot data available on Government Website using QG
             **Made a website to grant easy access to Data MORTH website and Intel iRaaste Page**
 
 Author:-**Artham Vasu**
+Note:_ QGis file is in Docs Folder
